@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Home</title>
+</head>
+<body>
+<h1> Apa Kabar </h1>
+<form action="" th method="post" th:action="@{/web/test}" th:object="${data}">
+    <div>
+        <div>
+            <label for="name">nama</label>
+            <input type="text" name="nama" id="name" th:field="*{nama}/">
+        </div>
+        <div>
+            <label for="dekripsi">Deskripsi</label>
+            <textarea name="dekripsi" id="deksripsi" cols="30" rows="10" th:field="*{dekripsi}"></textarea>
+        </div>
+        <button type="submit">submit</button>
+    </div>
+</form>
+
+<table>
+    <thead>
+    <tr>
+        <td>Id</td>
+        <td>Nama</td>
+        <td>Description</td>
+        <td>Action</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="data, iter : ${dept}">
+        <td th:text="${data.id}">Data1</td>
+        <td th:text="${data.nama}">Data2</td>
+        <td th:text="${data.dekripsi}">Data3</td>
+        <td th:text="${iter.count}">Data4</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
